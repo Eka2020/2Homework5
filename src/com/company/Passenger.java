@@ -6,8 +6,9 @@ import java.util.concurrent.Semaphore;
 public class Passenger extends Thread {
     public static final String ANSI_BLUE = " \u001B[34m";
     public static final String ANSI_YELLOW = " \u001B[33m";
-    public static final String ANSI_PURPLE = " \u001B[35m";
+    public static final String ANSI_GREEN = " \u001B[36m";
     public static final String ANSI_RED = "\u001B[31m";
+
     private Semaphore semaphore;
     private int passNumber;
     private CountDownLatch cdl;
@@ -27,7 +28,7 @@ public class Passenger extends Thread {
             System.out.println(ANSI_BLUE + "Пассавир " + passNumber + ANSI_RED + " идет на посадку");
             semaphore.release();
             sleep(2000);
-            System.out.println(ANSI_BLUE + "Пассавир " + passNumber + ANSI_PURPLE + "занимает все место в автобусе");
+            System.out.println(ANSI_BLUE + "Пассавир " + passNumber + ANSI_GREEN + "занимает все место в автобусе");
             cdl.countDown();
             sleep(2000);
             } catch (InterruptedException e) {
